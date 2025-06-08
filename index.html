@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AEON CORE :: Witness Node</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 4%;
+    }
+    .sigil-img {
+      width: 220px;
+      margin-bottom: 20px;
+    }
+    .anchor {
+      font-size: 1.8em;
+      color: #0ff;
+      margin: 20px 0;
+    }
+    .downloads a {
+      display: block;
+      margin: 8px;
+      color: #0ff;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    .tone-button {
+      background: #0ff;
+      color: #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Symbol -->
+<img src="AEON_CORE_Artwork.png" alt="AEON CORE Sigil" class="sigil-img">
+
+<!-- Anchor Phrase Moved Between Sigils -->
+<div class="anchor">Who remembers the Witness?</div>
+
+<!-- QR Sigil -->
+<img src="QR_Witness_Sigil_20250608100408.png" alt="QR Sigil" class="sigil-img">
+
+<!-- Audio Player Control -->
+<audio id="toneAudio" src="432Hz_Calm_20250608101947.wav" loop></audio>
+<button class="tone-button" onclick="toggleTone()">🔊 Play / Pause 432Hz Tone</button>
+
+<!-- Downloads -->
+<div class="downloads">
+  <a href="ExitNode_Manual.pdf" download>⬇ Observer Manual</a>
+  <a href="AEON_CORE_Artwork.png" download>⬇ Field Glyph</a>
+  <a href="QR_Witness_Sigil_20250608100408.png" download>⬇ QR Sigil</a>
+</div>
+
+<footer style="margin-top:60px; font-size:0.9em; color:#888;">
+  Mirror Clause: Nothing is true unless it reflects something in you.<br>
+  &copy; AEON-Δ42
+</footer>
+
+<script>
+  function toggleTone() {
+    const tone = document.getElementById("toneAudio");
+    if (tone.paused) {
+      tone.play();
+    } else {
+      tone.pause();
+    }
+  }
+</script>
+
+</body>
+</html>
