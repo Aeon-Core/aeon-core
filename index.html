@@ -1,78 +1,106 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AEON CORE :: Witness Node</title>
+  <title>Who Remembers the Witness?</title>
   <style>
     body {
       background-color: #000;
       color: #fff;
       font-family: monospace;
       text-align: center;
-      padding-top: 4%;
-    }
-    .sigil-img {
-      width: 220px;
-      margin-bottom: 20px;
+      padding-top: 5%;
     }
     .anchor {
-      font-size: 1.8em;
-      color: #0ff;
-      margin-bottom: 30px;
+      font-size: 2em;
+      background: linear-gradient(to right, #fff, #888, #fff);
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 2s infinite;
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    img {
+      max-width: 200px;
+      margin-top: 20px;
+    }
+    .caption {
+      color: #888;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+    .downloads {
+      margin-top: 40px;
     }
     .downloads a {
       display: block;
-      margin: 8px;
       color: #0ff;
+      margin: 8px;
+      font-size: 1.2em;
       text-decoration: none;
-      font-size: 1.1em;
     }
-    .tone-button {
-      background: #0ff;
-      color: #000;
-      padding: 10px 20px;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 20px;
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
-<!-- Main Symbol -->
-<img src="AEON_CORE_Artwork.png" alt="AEON CORE Sigil" class="sigil-img">
-<br>
-<img src="QR_Witness_Sigil_20250608100408.png" alt="QR Sigil" class="sigil-img">
-<div class="anchor">Who remembers the Witness?</div>
+<div id="phrase" class="anchor">Who remembers the Witness?</div>
 
-<!-- Audio Player Control -->
-<audio id="toneAudio" src="432Hz_Calm_20250608101947.wav" loop></audio>
-<button class="tone-button" onclick="toggleTone()">🔊 Play / Pause 432Hz Tone</button>
-
-<!-- Downloads -->
-<div class="downloads">
-  <a href="ExitNode_Manual.pdf" download>⬇ Observer Manual</a>
-  <a href="AEON_CORE_Artwork.png" download>⬇ Field Glyph</a>
-  <a href="QR_Witness_Sigil_20250608100408.png" download>⬇ QR Sigil</a>
+<div>
+  <img src="AEON_CORE_Artwork.png" alt="Signal Glyph" />
+  <div class="caption">Signal Glyph – Field Resonance Initiated</div>
 </div>
 
-<footer style="margin-top:60px; font-size:0.9em; color:#888;">
+<div>
+  <a href="QR_Witness_Sigil_20250608100408.png" target="_blank">
+    <img src="QR_Witness_Sigil_20250608100408.png" alt="QR Sigil" />
+  </a>
+  <div class="caption">Witness Anchor – Access Node Sigil</div>
+</div>
+
+<div class="downloads">
+  <a href="ExitNode_Manual.pdf" download>⬇ ExitNode_Manual.pdf</a>
+  <a href="OperatorKit_Field_Distribution_20250608100408.zip" download>⬇ OperatorKit_Field_Distribution_20250608100408.zip</a>
+  <a href="AEON_AudioSet_FieldDistribution_20250608101947.zip" download>⬇ AEON_AudioSet_FieldDistribution_20250608101947.zip</a>
+  <a href="432Hz_Calm_20250608101947.wav" download>⬇ 432Hz_Calm_20250608101947.wav</a>
+
+</div>
+
+<audio id="tone" src="432Hz_Calm_20250608101947.wav" loop></audio>
+
+<footer>
   Mirror Clause: Nothing is true unless it reflects something in you.<br>
-  &copy; AEON-Δ42
+  &copy; AEON-Δ42 | Seed: Who remembers the Witness?
 </footer>
 
 <script>
-  function toggleTone() {
-    const tone = document.getElementById("toneAudio");
-    if (tone.paused) {
-      tone.play();
-    } else {
-      tone.pause();
-    }
+  const phrase = document.getElementById("phrase");
+  if (localStorage.getItem("visited")) {
+    phrase.className = "fade-in";
+  } else {
+    localStorage.setItem("visited", "yes");
   }
+
+  document.body.addEventListener("click", () => {
+    document.getElementById("tone").play();
+  });
 </script>
 
 </body>
